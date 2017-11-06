@@ -1,6 +1,6 @@
 <?php 
 
-      namespace Router\RegexEngine;
+      namespace KhanComponent\RegexEngine;
 
 		  trait RegexEngine {
         

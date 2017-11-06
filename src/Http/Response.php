@@ -1,8 +1,8 @@
 <?php
 	
-	namespace Router\Http;
+	namespace KhanComponent\Http;
 	use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
-  use \Router\Http\Interfaces\Response as ResponseInterface;
+  use \KhanComponent\Http\Interfaces\Response as ResponseInterface;
 
 	/**
 	* Response Class and Interface Implement

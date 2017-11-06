@@ -9,15 +9,15 @@
 		 * @license     MIT
 		 */
     
-      namespace Router\KhanComponent;
-			use \Router\Http\Response as Response;
-			use \Router\Http\Request as Request;
+      namespace KhanComponent\Router;
+			use \KhanComponent\Http\Response as Response;
+			use \KhanComponent\Http\Request as Request;
 
 			@session_start();
 
       class Router {
         
-          use \Router\RegexEngine\RegexEngine;
+          use \KhanComponent\RegexEngine\RegexEngine;
         
           private static $instance = null,
                          $routes = [],

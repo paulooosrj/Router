@@ -3,7 +3,7 @@
 
     require __DIR__ . '/vendor/autoload.php';
 
-    use Router\KhanComponent\Router as Router;
+    use KhanComponent\Router\Router as Router;
 
     $router = Router::create([
       "clean_request" => true,

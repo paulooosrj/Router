@@ -1,8 +1,8 @@
 <?php
 	
-	namespace Router\Http;
+	namespace KhanComponent\Http;
 	use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
-  use \Router\Http\Interfaces\Request as RequestInterface;
+  use \KhanComponent\Http\Interfaces\Request as RequestInterface;
   
 	/**
 	* Request Class and Interface Implement
