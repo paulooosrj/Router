@@ -2,7 +2,8 @@
     "name": "paulao-dev/router",
     "description": "Router component",
     "require": {
-        "symfony/http-foundation": "*"
+        "symfony/http-foundation": "*",
+        "phpdocumentor/phpdocumentor": "2.*"
     },
     "license": "MIT",
     "authors": [
@@ -16,5 +17,7 @@
       "psr-4": {
         "KhanComponent\\": "src/"
       }
+    },
+    "require-dev": {
     }
 }
