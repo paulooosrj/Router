@@ -1,3 +1,3 @@
 # Router
 -----
-### Khan Component Router
+### Khan Component Router - Simple and Fast

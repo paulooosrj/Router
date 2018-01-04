@@ -35,6 +35,7 @@
               $server = $_SERVER;
               self::$config["uri"] = Router::get_uri();
               self::$config["path"] = (strripos($server["REQUEST_URI"], "?")) ? explode("?", $server["REQUEST_URI"])[0] : $server["REQUEST_URI"];
+              if($config['sub_dir']){ self::$config["path"] = str_replace($config['sub_dir'], '', self::$config["path"]); }
               self::$config["method"] = (isset($server["REQUEST_METHOD"])) ? $server["REQUEST_METHOD"] : "GET";
               if(in_array(self::$config["method"], ["delete","put"])){
                 if(self::$config["method"] === "delete"):
@@ -208,6 +209,7 @@
         public function dispatch(){
           
             $uri = self::$config["path"];
+            
             $metodo = self::$config["method"];
 						$param_receive = false;
 					

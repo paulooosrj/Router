@@ -2,13 +2,15 @@
 
 
     require __DIR__ . '/vendor/autoload.php';
-
+    
     use KhanComponent\Router\Router as Router;
 
     $router = Router::create([
       "clean_request" => true,
-      "url_filter" => true
+      "url_filter" => true,
+      "sub_dir" => '/Router'
     ]);
+    
 
     $router::get('/', function($req, $res){ 
       $nome = $req->get('nome');
