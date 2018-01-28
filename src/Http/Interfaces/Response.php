@@ -51,7 +51,7 @@
 			public function isRedirect($location);
 			public function isEmpty();
 			public static function closeOutputBuffers($targetLevel, $flush);
-			public function sendFile($file);
-			public function loadView($view, $data);
+			// public function sendFile($file);
+			// public function loadView($view, $data);
     
 	}

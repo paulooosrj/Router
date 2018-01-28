@@ -3,7 +3,7 @@
     "description": "Router component",
     "require": {
         "symfony/http-foundation": "*",
-        "phpdocumentor/phpdocumentor": "2.*"
+        "twig/twig": "*"
     },
     "license": "MIT",
     "authors": [

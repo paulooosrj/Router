@@ -15,15 +15,25 @@
 		public function __construct($use){
 			parent::__construct();
 			self::$use = $use;
+			
+			$folder = (!isset($uses['views'])) ? 'views/' : $uses['views'];
+			$loader = new \Twig_Loader_Filesystem($folder);
+			$this->twig = new \Twig_Environment($loader, array(
+					'cache' => $folder . 'compilation_cache',
+			));
+			//$this->render = $this->twig->render;
+			foreach(self::$use as $key => $value){
+				$this->$key = $value;
+			}
 		}
-    
-		public function sendFile($file){
-			include_once (!isset(self::$use["views"])) ? $file : self::$use["views"].$file;
-		}
-    
-		public function loadView($view, $data){
-			extract($data);
-			include_once (!isset(self::$use["views"])) ? $view : self::$use["views"].$view;
+		
+		public function render($file, $data){
+			// print_r($this->twig->render);
+			echo $this->twig->render($file, $data);
+		}/**/
+		
+		public function send($string = ''){
+			echo $string;
 		}
     
 	}

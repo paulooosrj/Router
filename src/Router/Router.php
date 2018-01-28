@@ -20,6 +20,7 @@
           use \KhanComponent\RegexEngine\RegexEngine;
         
           private static $instance = null,
+												 $uses = [],
                          $routes = [],
                          $config = [],
                          $delete, $put;
@@ -35,7 +36,7 @@
               $server = $_SERVER;
               self::$config["uri"] = Router::get_uri();
               self::$config["path"] = (strripos($server["REQUEST_URI"], "?")) ? explode("?", $server["REQUEST_URI"])[0] : $server["REQUEST_URI"];
-              if($config['sub_dir']){ self::$config["path"] = str_replace($config['sub_dir'], '', self::$config["path"]); }
+              if(isset($config['sub_dir'])){ self::$config["path"] = str_replace($config['sub_dir'], '', self::$config["path"]); }
               self::$config["method"] = (isset($server["REQUEST_METHOD"])) ? $server["REQUEST_METHOD"] : "GET";
               if(in_array(self::$config["method"], ["delete","put"])){
                 if(self::$config["method"] === "delete"):
@@ -70,6 +71,16 @@
           public static function type($type){
               return gettype($type);
           }
+				
+					public function set($name, $callback){
+							if(!isset(self::$uses[$name])){
+								self::$uses[$name] = $callback;
+							}
+					}
+				
+					private function uses(){
+						return self::$uses;
+					}
         
           public function class_invoked($string, $data){
               $class = $string;
@@ -252,7 +263,7 @@
 									}
 									$this->trate_callback($fn, [
 										new Request($data_receive, Router::get_uri()),
-										new Response([])
+										new Response(self::$uses)
 									]);
 							}
 						}
